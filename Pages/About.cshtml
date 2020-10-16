@@ -1,0 +1,20 @@
+@page
+@{
+    var model = await WebApp.Api.Pages.GetBySlugAsync<StandardPage>("about");
+}
+<html>
+    <head>
+        <title>This is the about page</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="~/">Home</a></li>
+            <li><a href="~/about">About</a></li>
+        </ul>
+        <h1>This is the about page</h1>
+        @if (model != null)
+        {
+            @Html.Raw(model.Body)
+        }
+    </body>
+</html>
